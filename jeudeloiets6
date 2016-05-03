@@ -1,0 +1,19 @@
+from random import randint
+
+nombre_joueur = int(input("Donnez le nombre de joueur, 3 maximum: "))
+
+if nombre_joueur > 3:
+    print("Il n'y a que trois jetons..")
+
+elif nombre_joueur < 2:
+    print("Vous n'êtes pas assez!")
+
+else:
+    print("Bonne partie!")
+
+de_1 = randint(1,6)
+de_2 = randint(1,6)
+
+total_de = de_1 + de_2
+
+resultat = print("votre tirage a fait "  + str(de_1) + " et " +str(de_2) + " = " + str(total_de))
