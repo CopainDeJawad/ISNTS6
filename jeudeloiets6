@@ -1,13 +1,20 @@
 from random import randint
 
+print(" choisissez qui est le joueur 1,2. ")
+
 nombre_joueur = int(input("Voulez-vous jouer à deux ou trois :  "))
 
 if nombre_joueur > 3 or nombre_joueur < 2:
     print(" Erreur nombre de joueurs. ")
 else:
-        de_1 = randint(1,6)
-        de_2 = randint(1,6)
-
-        total_de = de_1 + de_2
-
-        resultat = print("Votre tirage a fait "  + str(de_1) + " et " +str(de_2) + " = " + str(total_de))
+        joueur = int(input("Donner le numéro du joueur : "))
+        
+        if joueur > 3 or joueur < 1:
+            resultat = print("Ce joueur n'existe pas !")
+                   
+        else:
+            de_1 = randint(1,6)
+            de_2 = randint(1,6)
+            total_de = de_1 + de_2
+            resultat = print("Votre tirage a fait "  + str(de_1) + " et " +str(de_2) + " = " + str(total_de))
+        
