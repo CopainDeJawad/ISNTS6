@@ -18,3 +18,37 @@ else:
             total_de = de_1 + de_2
             resultat = print("Votre tirage a fait "  + str(de_1) + " et " +str(de_2) + " = " + str(total_de))
         
+
+
+
+
+def plateau():
+    """ 
+    c'est la surface de jeu.
+    """
+    plateau = list [0, 63]
+
+def regle(): 
+    """"
+    hôtel à la case 19 le joueur reste 2 tours a la case 
+    le labyrinthe à la case 42 le joueur retourne à la case 30
+    la prison à la case 52 le joueur attendra 3 tours 
+    Tete de mort a la case 58 le joueur retourne à la case départ 
+    Si le joueur fait 6 au début il va directement à la case 12
+    Si le joueur commence la partie, si l’un des joueurs fait 9 par 6 et 3, il doit avancer son pion immédiatement a la case 26. S’il fait 9 par 4 et 5, il ira a la case 53.
+    
+       
+    """       
+      
+print ("Vous êtes a l'hôtel vous vous reposez pendant 2 tour.") 
+
+for i in plateau:
+    if i == 19:
+        print ("vous etes a l'hôtel vous vous reposez 2 tours." )
+        
+        
+        
+        
+
+
+
