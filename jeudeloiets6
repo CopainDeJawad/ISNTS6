@@ -50,5 +50,14 @@ for i in plateau:
         
         
 
+### Partie ordre ###
+de_1 = randint(1,6)
+de_2 = randint(1,6)
+ordre = int(input("Donnez un entier, entre 1 et 6 : "))
+
+if de_1 != ordre:
+    print("Vous avez perdu, votre ami commence avant vous.")
+    else:
+        print("Bien joué, vous commencez à jouer à ce merveilleux jeux.")
 
 
