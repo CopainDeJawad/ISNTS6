@@ -1,0 +1,138 @@
+from random import*
+"""
+Nous avons importé ramdom et tout ce que comporte la fonction de random.
+"""
+
+def cache(n,k):
+    """
+    Dans n cases, un nombre k de couleurs sont cachées. 
+    La fonction est une liste qui va comporter les valeurs sans les afficher
+    """ 
+    s=[]
+    i=0
+    while i<n:
+        s.append(randrange(1,k+1))
+        i=i+1
+    return s
+
+
+def to_list(s):
+    """        
+    Cette fonction transforme une chaine en une liste.
+    Elle permet d'afficher, lors du résultat, la combinaison gagnante sous forme
+    [k, k, k,...]
+    """
+    liste=[]
+    i=0
+    while i<len(s):
+        liste.append(int(s[i]))
+        i=i+1
+    return liste
+
+    
+def noirs(proposition,solution):
+    """
+    La fonction compte le nombre de couleurs bien placées.
+    On utilise la liste où sont stockées les valeurs afin de vérifier si 
+    une valeur qu'entre l'utilisateur est stockée dedans.
+    """
+    bien=0  # nombre de noirs au début
+    i=0
+    while i < cases:
+        if proposition[i]==solution[i]:
+            bien=bien+1
+            proposition[i]='y'   # pour éviter des compter plusieurs fois une même couleur,
+            solution[i]='x'      # on remplace ces chiffres par des lettres
+        i=i+1
+    return bien
+
+
+def blancs(proposition,solution):
+    """
+    Même fonction que noir, sauf que cette-ci compte les couleurs mal placées.
+    Ces valeurs sont présentes dans la liste MAIS sont mal placées.
+    La fonction explique que la valeur est présente, mais pas à sa place.
+    """
+    i=0
+    mal=0   # nombre de blancs
+    while i<cases:
+        j=0
+        while j<cases:
+            if proposition[i]==solution[j]:
+                mal=mal+1
+                
+            j=j+1
+        i=i+1
+    return mal
+
+        
+def copie(liste):
+    """
+    Copier la liste permet de travailler avec cette dernière, pour ne pas 
+    modifier la liste initiale.
+    """
+    copy=[]
+    i=0
+    while i<len(liste):
+        copy.append(liste[i])
+        i=i+1
+    return copy
+
+
+# Programme principal : 
+print("Bonjour, bienvenue sur le jeu 'Mastermind', édition numérique. \
+                            Nous allons vous rafraichir la mémoire : \
+vous devez trouver la combinaison aléatoire cachée par l'ordinateur (le méchant)")
+print()
+print("Le contexte est le suivant : nous êtes un grand scientifique, mais votre invention a \
+été mise sous code. Vous avez un nombre d'essai limité, veuillez à la conserver, le destin du \
+monde est entre vos mains.")
+print()
+
+# Variables :
+cases=4
+couleurs= 9
+orange = 1
+bleu = 2
+vert = 3
+jaune = 4
+violet = 5
+fushia = 6
+Caca_doie = 7
+Rose_bonbon = 8
+Roux = 9            
+
+essai_max = int(input("En combien d'essai maximum veux-tu tester tes limites? \
+la moyenne de réussite est de 15 essais. Plus de 15 ? Vous êtes soit mauvais \
+soit vous n'avez pas confiance en vos capacités. Donc :   "))
+essai=0
+
+sol = cache(cases,couleurs)
+nb_biens=0
+nb_mals=0
+copie_prop = []     # Copie la liste proposition
+copie_sol = []      # Copie la liste solution
+print("La composition comporte", cases, "chiffres ; identiques ou non. \
+                            exemple : 1864 \
+                    vous n'avez le droit qu'aux chiffres de 1 à 9.")
+                            
+print("Vous avez",essai_max,"essai(s)")
+print()
+
+
+while nb_biens<cases and essai<essai_max:
+    essai=essai+1
+    print("essai",essai)
+    prop=to_list(input('Entrez votre proposition:  '))
+    copie_prop=copie(prop)
+    copie_sol=copie(sol)
+    nb_biens=noirs(copie_prop, copie_sol)
+    print(nb_biens,'bien placé(s)')
+    nb_mals=blancs(copie_prop, copie_sol)
+    print(nb_mals, 'mal placé(s)')
+    print()
+if nb_biens==cases:
+    print("Bravo !")
+else:
+    print("Trop tard Professeur, la bombe a explosée. \
+    La réponse était",sol)
