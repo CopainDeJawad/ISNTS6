@@ -98,9 +98,9 @@ vert = 3
 jaune = 4
 violet = 5
 fushia = 6
-Caca_doie = 7
-Rose_bonbon = 8
-Roux = 9            
+marron = 7
+rose = 8
+arc_en_ciel = 9            
 
 essai_max = int(input("En combien d'essai maximum veux-tu tester tes limites? \
 la moyenne de réussite est de 15 essais. Plus de 15 ? Vous êtes soit mauvais \
