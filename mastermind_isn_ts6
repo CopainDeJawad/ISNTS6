@@ -60,7 +60,6 @@ def blancs(proposition,solution):   # proposition & solution sont les arguments 
         while j<cases:
             if proposition[i]==solution[j]:
                 mal=mal+1
-                
             j=j+1
         i=i+1
     return mal
@@ -98,9 +97,9 @@ vert = 3
 jaune = 4
 violet = 5
 fushia = 6
-Caca_doie = 7
-Rose_bonbon = 8
-Roux = 9            
+marron = 7
+rose = 8
+arc_en_ciel = 9            
 
 essai_max = int(input("En combien d'essai maximum veux-tu tester tes limites? \
 la moyenne de réussite est de 15 essais. Donc :   "))
